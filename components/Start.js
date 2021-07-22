@@ -8,6 +8,7 @@ export default class Start extends Component {
                 <Text>Start Component</Text>
                 <Button 
                     title='Go to Chat'
+                    onPress={() => this.props.navigation.navigate('Chat')}
                 />
             </View>
         )

@@ -12,6 +12,9 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+// create the navigator - (stored the method into a shorter variable for simplicity)
+const Stack = createStackNavigator();
+
 export default class HelloWorld extends Component {
 	constructor(props) {
 		super(props);
@@ -19,7 +22,15 @@ export default class HelloWorld extends Component {
 
 	render() {
 		return (
-			<View></View>
+			<NavigationContainer>
+
+				{/* Wrapped everything in Navigation Container and implemented the Stack Navigator */}
+				<Stack.Navigator initialRouteName='Start'>
+					<Stack.Screen name='Start' component={Start} />
+					<Stack.Screen name='Chat' component={Chat} />
+				</Stack.Navigator>
+
+			</NavigationContainer>
 		)
 	}
 }
