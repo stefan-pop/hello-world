@@ -11,6 +11,7 @@ export default class Chat extends Component {
     }
 
     componentDidMount() {
+        // Set either the name of a user if it's present or "Chat", in the navigation bar
         this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name })
     }
 
@@ -18,6 +19,7 @@ export default class Chat extends Component {
         const {bgColor} = this.state;
 
         return (
+            // The backgroundColor is added dinamically therefore I am using an array inside the style object
             <View style={[styles.container, {backgroundColor: bgColor}]}>
                 <Text>Chat Component</Text>
             </View>

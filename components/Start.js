@@ -13,17 +13,24 @@ export default class Start extends Component {
         return (
             <View style={styles.container1}>
                 <ImageBackground source={require('../assets/background.png')} resizeMode="cover" style={styles.image}>
+
+                    {/* Title of the app */}
                     <Text style={styles.helloWorld}>Hello World</Text>
+
+                    {/* The wrapper of the TextInput, the section with the background color options and button */}
                     <View style={styles.container2}>
                         <TextInput 
                             style={styles.input}
                             onChangeText={(name) => this.setState({name})}
                             value={this.state.name}
                         />
+
+                        {/* Wrapper of the background colors section */}
                         <View>
                             <Text>Choose background color:</Text>
                             
                             <View style={{flexDirection:'row', marginTop: 12}}>
+                                {/* the "onPress" method is used to set the "bgColor" state to a string with the hex value of the color each option represents */}
                                 <TouchableOpacity 
                                     style={[styles.pickBgColor, {backgroundColor: '#000'}]}
                                     onPress={() => this.setState({bgColor: '#000'})}
@@ -45,6 +52,7 @@ export default class Start extends Component {
                         <TouchableOpacity 
                             style={styles.button}
                             title='Go to Chat'
+                            // The second argument of the navigate() method is the way the additional props are passed to the Chat component
                             onPress={() => this.props.navigation.navigate('Chat', {name: this.state.name, bgColor: this.state.bgColor})}
                         >
                             <Text style={{color: '#fff', fontSize: 18}}>Start Chatting</Text> 
