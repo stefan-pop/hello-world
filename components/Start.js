@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     },
     container2: {
         flex: 0,
-        height: 300,
+        height: '44%',
+        minHeight: 240,
         width: '88%',
         backgroundColor: '#fff',
         justifyContent: 'space-evenly',
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
         height: 50,
         borderWidth: 2,
         borderColor: '#476380',
-        padding: 4
+        padding: 8
     },
     button: {
        backgroundColor: '#476380',
