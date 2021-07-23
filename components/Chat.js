@@ -30,3 +30,8 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
+
+Chat.propTypes = {
+    name: PropTypes.string.isRequired,
+    bgColor: PropTypes.string.isRequired
+}
