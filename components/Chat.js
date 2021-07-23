@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class Chat extends Component {
     constructor(props) {
@@ -34,6 +35,6 @@ const styles = StyleSheet.create({
 });
 
 Chat.propTypes = {
-    name: PropTypes.string.isRequired,
-    bgColor: PropTypes.string.isRequired
+    name: PropTypes.string,
+    bgColor: PropTypes.string
 }
