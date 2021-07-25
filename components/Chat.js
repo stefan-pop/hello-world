@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Imported GiftedChat library
@@ -61,6 +61,8 @@ export default class Chat extends Component {
                         _id: 1,
                     }}
                 />
+                {/* avoid keyboard hidding the message input on some android devices */}
+                { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
             </View>
         )
     }
