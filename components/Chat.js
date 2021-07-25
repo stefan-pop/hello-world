@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
+// Imported GiftedChat library
+import {GiftedChat, Bubble} from 'react-native-gifted-chat'
+
 export default class Chat extends Component {
     constructor(props) {
         super(props);
