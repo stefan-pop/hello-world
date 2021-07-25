@@ -51,6 +51,16 @@ export default class Chat extends Component {
         }))
     }
 
+    // customize the bubble's background color of the sender (right)
+    renderBubble(props) {
+        return (
+            <Bubble 
+                {...props}
+                wrapperStyle={{
+                    right: {backgroundColor: '#000'}
+                }}
+            />
+        )
     }
 
     render() {
