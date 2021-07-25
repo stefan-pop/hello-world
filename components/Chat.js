@@ -53,7 +53,14 @@ export default class Chat extends Component {
         return (
             // The backgroundColor is added dinamically therefore I am using an array inside the style object
             <View style={[styles.container, {backgroundColor: bgColor}]}>
-                <Text>Chat Component</Text>
+                <GiftedChat 
+                    renderBubble={this.renderBubble.bind(this)}
+                    messages={messages}
+                    onSend={messages => this.onSend(messages)}
+                    user={{
+                        _id: 1,
+                    }}
+                />
             </View>
         )
     }
