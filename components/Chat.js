@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, Platform, KeyboardAvoidingView, LogBox } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Imported GiftedChat library
@@ -18,6 +18,9 @@ const firebaseConfig = {
     messagingSenderId: "587311165676",
     appId: "1:587311165676:web:855ab4f0994487ce2575c9"
   };
+
+// ignore a warning that aparently can't be fixed
+LogBox.ignoreLogs(['Setting a timer']);
 
 export default class Chat extends Component {
     constructor(props) {
