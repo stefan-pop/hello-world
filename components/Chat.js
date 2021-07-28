@@ -131,7 +131,9 @@ export default class Chat extends Component {
                     messages={messages}
                     onSend={messages => this.onSend(messages)}
                     user={{
-                        _id: 1,
+                        _id: uid,
+                        name: name,
+                        avatar: 'https://placeimg.com/140/140/any'
                     }}
                 />
                 {/* avoid keyboard hidding the message input on some android devices */}
