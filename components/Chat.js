@@ -62,6 +62,25 @@ export default class Chat extends Component {
 
     }
 
+    // get data from database each time the database gets updated
+	onCollectionUpdate = (querySnapshot) => {
+		const messages = [];
+		// go through each document
+		querySnapshot.forEach((doc) => {
+			// get the QueryDocumentSnapshot's data
+			let data = doc.data();
+			messages.push({
+                _id: data._id,
+                text: data.text,
+                createdAt: data.createdAt.toDate(),
+                user: data.user,
+			});
+		});
+		this.setState({
+			messages,
+		});
+	}
+
     // function that takes one parameter reprezenting the message a user sends. Whatever the user sends will keep getting appended to the state "messages".
     onSend(messages = []) {
         this.setState(previousState => ({
