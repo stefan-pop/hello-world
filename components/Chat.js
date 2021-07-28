@@ -24,6 +24,8 @@ export default class Chat extends Component {
         super(props);
         this.state = {
             messages: [],
+            uid: '',
+            loggedInText: 'Loading...',
             name: this.props.route.params.name,
             bgColor: this.props.route.params.bgColor
         }
