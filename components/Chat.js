@@ -9,6 +9,16 @@ import {GiftedChat, Bubble} from 'react-native-gifted-chat'
 import firebase from 'firebase';
 import firestore from 'firebase';
 
+// Firebase config
+const firebaseConfig = {
+    apiKey: "AIzaSyAyxqm6wX3aATheBCHFEqVGZPgd-SNxnEc",
+    authDomain: "chat-app-98f49.firebaseapp.com",
+    projectId: "chat-app-98f49",
+    storageBucket: "chat-app-98f49.appspot.com",
+    messagingSenderId: "587311165676",
+    appId: "1:587311165676:web:855ab4f0994487ce2575c9"
+  };
+
 export default class Chat extends Component {
     constructor(props) {
         super(props);
@@ -17,6 +27,12 @@ export default class Chat extends Component {
             name: this.props.route.params.name,
             bgColor: this.props.route.params.bgColor
         }
+
+        // Initialize the app
+        if (!firebase.apps.length){
+			firebase.initializeApp(firebaseConfig);
+		}
+
     }
 
     componentDidMount() {
