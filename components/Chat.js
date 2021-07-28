@@ -39,6 +39,8 @@ export default class Chat extends Component {
 
     componentDidMount() {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
+        this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name });
+
     }
 
     // function that takes one parameter reprezenting the message a user sends. Whatever the user sends will keep getting appended to the state "messages".
