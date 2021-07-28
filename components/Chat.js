@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 // Imported GiftedChat library
 import {GiftedChat, Bubble} from 'react-native-gifted-chat'
 
+// Import Firebase
+import firebase from 'firebase';
+import firestore from 'firebase';
+
 export default class Chat extends Component {
     constructor(props) {
         super(props);
