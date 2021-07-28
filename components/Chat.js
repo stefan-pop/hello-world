@@ -37,31 +37,6 @@ export default class Chat extends Component {
 
     componentDidMount() {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
-        this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name })
-
-        this.setState({
-            messages: [
-                // System message
-                {
-                    _id: 2,
-                    text: 'This is a system message',
-                    createdAt: new Date(),
-                    system: true,
-                },
-
-                // Normal message
-                {
-                    _id: 1,
-                    text: 'Hello developer',
-                    createdAt: new Date(),
-                    user: {
-                        _id: 2,
-                        name: 'React Native',
-                        avatar: 'https://placeimg.com/140/140/any',
-                    },
-                }
-            ]
-        })
     }
 
     // function that takes one parameter reprezenting the message a user sends. Whatever the user sends will keep getting appended to the state "messages".
