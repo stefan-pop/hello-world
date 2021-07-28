@@ -121,7 +121,7 @@ export default class Chat extends Component {
 
     render() {
         // get the variables by destructuring the state object
-        const {bgColor, messages} = this.state;
+        const {bgColor, messages, uid, name} = this.state;
 
         return (
             // The backgroundColor is added dinamically therefore I am using an array inside the style object
