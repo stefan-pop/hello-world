@@ -60,6 +60,10 @@ export default class Chat extends Component {
 		});
     }
 
+    componentWillUnmount() {
+        // Stop the listeners
+        this.authUnsubscribe();
+        this.unsubscribeUser();
     }
 
     // get data from database each time the database gets updated
