@@ -97,6 +97,9 @@ export default class Chat extends Component {
         this.setState(previousState => ({
             messages: GiftedChat.append(previousState.messages, messages),
         }))
+        
+        // Call the addMessage function with the message in the bubble as parameter
+        this.addMessage(messages[0])
     }
 
     // customize the bubble's background color of the sender (right)
