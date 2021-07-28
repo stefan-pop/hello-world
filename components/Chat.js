@@ -56,10 +56,9 @@ export default class Chat extends Component {
 				uid: user.uid,
 				loggedInText: 'Welcome',
 			});
-			// create a reference to the active user's documents
-			this.referenceUserData = firebase.firestore().collection('messages');
-			// listener for updates in collection belonging to the active user
-			this.unsubscribeUser = this.referenceUserData.orderBy("createdAt", "desc").onSnapshot(this.onCollectionUpdate);
+            
+			// listener for updates in the collection "messages"
+			this.unsubscribeUser = this.referenceMessages.orderBy("createdAt", "desc").onSnapshot(this.onCollectionUpdate);
 		});
     }
 
