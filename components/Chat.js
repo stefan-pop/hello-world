@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Platform, KeyboardAvoidingView, LogBox } from 'react-native';
+import { View, StyleSheet, Platform, KeyboardAvoidingView, LogBox } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Imported GiftedChat library
@@ -7,7 +7,6 @@ import {GiftedChat, Bubble} from 'react-native-gifted-chat'
 
 // Import Firebase
 import firebase from 'firebase';
-import firestore from 'firebase';
 
 // Firebase config
 const firebaseConfig = {
@@ -28,7 +27,6 @@ export default class Chat extends Component {
         this.state = {
             messages: [],
             uid: '',
-            loggedInText: 'Loading...',
             name: this.props.route.params.name,
             bgColor: this.props.route.params.bgColor
         }
@@ -54,7 +52,6 @@ export default class Chat extends Component {
 			// update user state with curently active user data
 			this.setState({
 				uid: user.uid,
-				loggedInText: 'Welcome',
 			});
             
 			// listener for updates in the collection "messages"
@@ -128,7 +125,6 @@ export default class Chat extends Component {
         return (
             // The backgroundColor is added dinamically therefore I am using an array inside the style object
             <View style={[styles.container, {backgroundColor: bgColor}]}>
-                <Text>{this.state.loggedInText}</Text>
                 <GiftedChat 
                     renderBubble={this.renderBubble.bind(this)}
                     messages={messages}
