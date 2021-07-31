@@ -56,6 +56,24 @@ export default class Chat extends Component {
         }
     }
 
+    // Function that updates the "messages" and the "uid" state with data saved in AsyncStorage
+    async getMessages() {
+        let messages = '';
+        let uid = '';
+        try {
+            // get the messages from AsyncStorage
+            messages = await AsyncStorage.getItem('messages') || [];
+            // get the uid from Async storage and update the state so the GiftedChat will render the messages in different bubbles
+            uid = await AsyncStorage.getItem('uid')
+            this.setState({
+                uid,
+                messages: JSON.parse(messages),
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
     componentDidMount() {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
         this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name });
