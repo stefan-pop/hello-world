@@ -101,7 +101,7 @@ export default class Chat extends Component {
 		});
 		this.setState({
 			messages,
-		});
+		}, () => this.saveMessages()); // Update the AsyncStorage with the latest changes in firebase
 	}
 
     // add a document to Firestore
@@ -119,10 +119,12 @@ export default class Chat extends Component {
     onSend(messages = []) {
         this.setState(previousState => ({
             messages: GiftedChat.append(previousState.messages, messages),
-        }))
-        
-        // Call the addMessage function with the message in the bubble as parameter
-        this.addMessage(messages[0])
+        }), () => {
+             // Call the addMessage function with the message in the bubble as parameter
+            this.addMessage(messages[0])
+            // Save each sent message in AsyncStorage
+            this.saveMessages();
+        });
     }
 
     // customize the bubble's background color of the sender (right)
