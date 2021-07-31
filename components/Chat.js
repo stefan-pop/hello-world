@@ -78,6 +78,19 @@ export default class Chat extends Component {
         }
     }
 
+    // Delete messages from AsyncStorage and from the state
+    async deleteMessages() {
+        try {
+            await AsyncStorage.removeItem('messages');
+            this.setState({
+                messages: []
+            })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
+
     componentDidMount() {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
         this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name });
@@ -194,6 +207,7 @@ export default class Chat extends Component {
                 />
                 {/* avoid keyboard hidding the message input on some android devices */}
                 { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
+                <Button title="delete" onPress={() => this.deleteMessages()} />
             </View>
         )
     }
