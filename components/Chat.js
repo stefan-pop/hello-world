@@ -33,6 +33,7 @@ export default class Chat extends Component {
         this.state = {
             messages: [],
             uid: '',
+            connection: false,
             name: this.props.route.params.name,
             bgColor: this.props.route.params.bgColor
         }
