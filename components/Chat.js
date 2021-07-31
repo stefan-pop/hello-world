@@ -188,6 +188,15 @@ export default class Chat extends Component {
         )
     }
 
+    // Don't display the message input if no internet connection
+    renderInputToolbar = props => {
+        if (this.state.connection === false) {
+            // if no connection return nothing
+        } else {
+            return <InputToolbar {...props} />
+        }
+    }
+
     render() {
         // get the variables by destructuring the state object
         const {bgColor, messages, uid, name} = this.state;
@@ -197,6 +206,7 @@ export default class Chat extends Component {
             <View style={[styles.container, {backgroundColor: bgColor}]}>
                 <GiftedChat 
                     renderBubble={this.renderBubble.bind(this)}
+                    renderInputToolbar={this.renderInputToolbar}
                     messages={messages}
                     onSend={messages => this.onSend(messages)}
                     user={{
