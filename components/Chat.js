@@ -46,6 +46,16 @@ export default class Chat extends Component {
         this.referenceMessages = firebase.firestore().collection('messages');
     }
 
+    
+    // Save messages in AsyncStorage
+    async saveMessages() {
+        try {
+            await AsyncStorage.setItem('messages', JSON.stringify(this.state.messages));
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     componentDidMount() {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
         this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name });
