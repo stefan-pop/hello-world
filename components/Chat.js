@@ -78,23 +78,36 @@ export default class Chat extends Component {
         // Set either the name of a user if it's present or "Chat", in the navigation bar
         this.props.navigation.setOptions({title: !this.state.name ? 'Chat' : this.state.name });
 
-        // Anonym authentication
-        this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
-			if (!user) {
-				try {
-                    await firebase.auth().signInAnonymously();
-                } catch(error) {
-                    console.log(error)
-                }
-			};
-			// update user state with curently active user data
-			this.setState({
-				uid: user.uid,
-			});
-            
-			// listener for updates in the collection "messages"
-			this.unsubscribeUser = this.referenceMessages.orderBy("createdAt", "desc").onSnapshot(this.onCollectionUpdate);
-		});
+        NetInfo.fetch().then(connection => {
+            if (connection.isConnected) {
+                this.setState({ connection: true });
+                // Anonym authentication
+                this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+			        if (!user) {
+                        try {
+                            await firebase.auth().signInAnonymously();
+                        } catch (error) {
+                            console.log(error)
+                        }
+			        };
+
+                    // update user state with curently active user id and connection
+                    this.setState({
+                        uid: user.uid,
+                    });
+                    
+                    // store the uid in AsyncStorage
+                    await AsyncStorage.setItem('uid', user.uid);
+                    
+                    // listener for updates in the collection "messages"
+                    this.unsubscribeUser = this.referenceMessages.orderBy("createdAt", "desc").onSnapshot(this.onCollectionUpdate);
+                });
+            } else {
+                // if no internet connection updated the state accordingly and get the data from AsyncStorage
+                this.setState({ connection: false });
+                this.getMessages();
+            }
+        });
     }
 
     componentWillUnmount() {
