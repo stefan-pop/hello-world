@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import { View, StyleSheet, Platform, KeyboardAvoidingView, LogBox } from 'react-native';
+import { View, StyleSheet, Platform, KeyboardAvoidingView, LogBox, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Imported GiftedChat library
-import {GiftedChat, Bubble} from 'react-native-gifted-chat'
+import {GiftedChat, Bubble, InputToolbar} from 'react-native-gifted-chat'
 
 // Import Firebase
 import firebase from 'firebase';
+
+// Import AsyncSotrage (local storage for React Native)
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Import NetInfo (to see if a user is on or offline)
+import NetInfo from '@react-native-community/netinfo';
 
 // Firebase config
 const firebaseConfig = {
