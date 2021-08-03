@@ -79,16 +79,16 @@ export default class Chat extends Component {
     }
 
     // Delete messages from AsyncStorage and from the state
-    async deleteMessages() {
-        try {
-            await AsyncStorage.removeItem('messages');
-            this.setState({
-                messages: []
-            })
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
+    // async deleteMessages() {
+    //     try {
+    //         await AsyncStorage.removeItem('messages');
+    //         this.setState({
+    //             messages: []
+    //         })
+    //     } catch (error) {
+    //         console.log(error.message)
+    //     }
+    // }
 
 
     componentDidMount() {
@@ -217,7 +217,9 @@ export default class Chat extends Component {
                 />
                 {/* avoid keyboard hidding the message input on some android devices */}
                 { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null }
-                <Button title="delete" onPress={() => this.deleteMessages()} />
+
+                {/* Uncomment this button and the function it is calling to clear the AsyncStorage of the device */}
+                {/* <Button title="delete" onPress={() => this.deleteMessages()} /> */}
             </View>
         )
     }
