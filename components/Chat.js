@@ -196,7 +196,7 @@ export default class Chat extends Component {
             <Bubble 
                 {...props}
                 wrapperStyle={{
-                    right: {backgroundColor: '#c4c4bb'},
+                    right: {backgroundColor: '#807f7d'},
                     left: {backgroundColor: '#edf5d3'}
                 }}
             />
