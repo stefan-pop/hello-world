@@ -205,6 +205,24 @@ export default class Chat extends Component {
         return <CustomActions {...props} />
     }
 
+    // Render the location in a MapView component if the user's object contains a location
+    renderCustomView(props) {
+        const {currentMessage} = props;
+        if (currentMessage.location) {
+            return(
+                <MapView
+                    style={{width: 250, height: 160, margin: 3, zIndex: 100}}
+                    region={{
+                        latitude: currentMessage.location.latitude,
+                        longitude: currentMessage.location.longitude,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
+                 />
+            );
+        }
+        return null;
+    }
 
     render() {
         // get the variables by destructuring the state object
@@ -215,6 +233,7 @@ export default class Chat extends Component {
             <View style={[styles.container, {backgroundColor: bgColor}]}>
                 <GiftedChat 
                     renderActions={this.renderCustomActions}
+                    renderCustomView={this.renderCustomView}
                     showUserAvatar={true}
                     renderBubble={this.renderBubble.bind(this)}
                     renderInputToolbar={this.renderInputToolbar}
