@@ -28,8 +28,13 @@ const firebaseConfig = {
     appId: "1:587311165676:web:855ab4f0994487ce2575c9"
   };
 
-// ignore a warning that aparently can't be fixed
-LogBox.ignoreLogs(['Setting a timer']);
+// Ignore warnings that aparently can't be fixed because of the third party libraries or modules
+LogBox.ignoreLogs([
+    'Setting a timer', 
+    'expo-permissions is now deprecated', 
+    'Animated.event now requires a second argument for options',
+    'Animated: `useNativeDriver` was not specified. This is a required option and must be explicitly set to `true` or `false`'
+]);
 
 export default class Chat extends Component {
     constructor(props) {
