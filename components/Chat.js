@@ -142,9 +142,11 @@ export default class Chat extends Component {
 			let data = doc.data();
 			messages.push({
                 _id: data._id,
-                text: data.text,
+                text: data.text || '',
                 createdAt: data.createdAt.toDate(),
                 user: data.user,
+                image: data.image || null,
+                location: data.location || null,
 			});
 		});
 		this.setState({
@@ -156,9 +158,11 @@ export default class Chat extends Component {
 	addMessage(message) {   
 		this.referenceMessages.add({
             _id: message._id,
-			text: message.text,
+			text: message.text || '',
 			createdAt: message.createdAt,
 			user: message.user,
+            image: message.image || null,
+            location: message.location || null,
 		});
 	}
 
