@@ -205,6 +205,7 @@ export default class Chat extends Component {
             // The backgroundColor is added dinamically therefore I am using an array inside the style object
             <View style={[styles.container, {backgroundColor: bgColor}]}>
                 <GiftedChat 
+                    showUserAvatar={true}
                     renderBubble={this.renderBubble.bind(this)}
                     renderInputToolbar={this.renderInputToolbar}
                     messages={messages}
@@ -212,7 +213,7 @@ export default class Chat extends Component {
                     user={{
                         _id: uid,
                         name: name,
-                        avatar: 'https://placeimg.com/140/140/any'
+                        avatar: ''
                     }}
                 />
                 {/* avoid keyboard hidding the message input on some android devices */}
