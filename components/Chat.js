@@ -14,6 +14,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Import NetInfo (to see if a user is on or offline)
 import NetInfo from '@react-native-community/netinfo';
 
+// Import CustomActions component
+import CustomActions from './CustomActions';
+import MapView from 'react-native-maps';
+
 // Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyAyxqm6wX3aATheBCHFEqVGZPgd-SNxnEc",
