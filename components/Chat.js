@@ -45,12 +45,12 @@ export default class Chat extends Component {
 
         // Reference the "messages" collection of the db
         this.referenceMessages = firebase.firestore().collection('messages');
-        // Reference the listeners for authentication and firebase updates
-        this.unsubscribeUser = function(){};
-        this.authUnsubscribe = function(){};
     }
 
-    
+    // Define the listeners for authentication and firebase updates
+    unsubscribeUser = function(){};
+    authUnsubscribe = function(){};
+
     // Save messages in AsyncStorage
     async saveMessages() {
         try {
