@@ -12,9 +12,11 @@ Cross-Platform Native App created with [React Native](https://reactnative.dev/) 
 * [React Navigation](https://reactnavigation.org/)
 
 ## Running the App
+<br>
+
 1. To run the app on your device, you need the last __Node.js LTS__ version and the Expo CLI installed globally.
 
-    npm install -g expo-cli
+        npm install -g expo-cli
 
 2. Clone the repo and install all the dependencies in package.json.
         
@@ -25,7 +27,7 @@ Cross-Platform Native App created with [React Native](https://reactnative.dev/) 
         expo start
     This will open a new Tab in your browser.
 
-<hr />
+<hr /> <br>
 
 4. To run the App on a smartphone
     + create an [expo account](https://expo.dev/signup) than download the __Expo Go__ app from the store on your smartphone.
@@ -34,11 +36,12 @@ Cross-Platform Native App created with [React Native](https://reactnative.dev/) 
     + On iOS, use the built-in QR code scanner of the Camera app.
     + The "Hello-World" app should be visible now on your smartphone.
 
-<hr />
+<hr /> <br>
 
 5. To run the App an emulator
     
     + In your web browser go to the tab opened after running "expo start" and click on "Run on Android device/emulator" or "Run on IOS simulator".
+<hr /> <br>
 
 ## Platforms
 IOS
