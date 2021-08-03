@@ -132,3 +132,8 @@ export default class CustomActions extends Component {
         )
     }
 }
+
+// Define the prop types
+CustomActions.contextTypes = {
+    actionSheet: PropTypes.func,
+};
