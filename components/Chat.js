@@ -200,6 +200,11 @@ export default class Chat extends Component {
             return <InputToolbar {...props} />
         }
     }
+    // Button inside message input that opens an ActionSheet with the features like taking a photo
+    renderCustomActions = (props) => {
+        return <CustomActions {...props} />
+    }
+
 
     render() {
         // get the variables by destructuring the state object
@@ -209,6 +214,7 @@ export default class Chat extends Component {
             // The backgroundColor is added dinamically therefore I am using an array inside the style object
             <View style={[styles.container, {backgroundColor: bgColor}]}>
                 <GiftedChat 
+                    renderActions={this.renderCustomActions}
                     showUserAvatar={true}
                     renderBubble={this.renderBubble.bind(this)}
                     renderInputToolbar={this.renderInputToolbar}
